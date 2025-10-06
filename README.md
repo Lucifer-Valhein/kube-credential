@@ -124,21 +124,21 @@ docker volume create kube-cred-db
 
 docker run -d -p 8080:8080 --name issuance-container ^
 
-&nbsp; -e POD_NAME=worker-1 ^
+ -e POD_NAME=worker-1 ^
 
-&nbsp; -e SQLITE_PATH=/data/issuance.sqlite ^
+ -e SQLITE_PATH=/data/issuance.sqlite ^
 
-&nbsp; -v kube-cred-db:/data issuance-api:1.0
+ -v kube-cred-db:/data issuance-api:1.0
 
 
 
 docker run -d -p 8081:8081 --name verification-container ^
 
-&nbsp; -e POD_NAME=worker-2 ^
+ -e POD_NAME=worker-2 ^
 
-&nbsp; -e SQLITE_PATH=/data/issuance.sqlite ^
+ -e SQLITE_PATH=/data/issuance.sqlite ^
 
-&nbsp; -v kube-cred-db:/data verification-api:1.0
+ -v kube-cred-db:/data verification-api:1.0
 
 
 
@@ -170,17 +170,17 @@ docker logs verification-container
 
 curl -X POST http://localhost:8080/issue ^
 
-&nbsp; -H "Content-Type: application/json" ^
+ -H "Content-Type: application/json" ^
 
-&nbsp; -d "{\"credentialId\":\"cred-demo-1\",\"subject\":\"alice\",\"data\":{\"role\":\"admin\"}}"
+ -d "{\"credentialId\":\"cred-demo-1\",\"subject\":\"alice\",\"data\":{\"role\":\"admin\"}}"
 
 
 
 curl -X POST http://localhost:8081/verify ^
 
-&nbsp; -H "Content-Type: application/json" ^
+ -H "Content-Type: application/json" ^
 
-&nbsp; -d "{\"credentialId\":\"cred-demo-1\",\"subject\":\"alice\"}"
+ -d "{\"credentialId\":\"cred-demo-1\",\"subject\":\"alice\"}"
 
 ```
 
