@@ -58,11 +58,11 @@ kube-credential/
 
 ```bash
 
-cd apps\\issuance-api \&\& npm install
+cd apps\issuance-api && npm install
 
-cd ..\\verification-api \&\& npm install
+cd ..\verification-api && npm install
 
-cd ..\\..\\frontend \&\& npm install
+cd ..\..\frontend && npm install
 
 ```
 
@@ -72,9 +72,9 @@ cd ..\\..\\frontend \&\& npm install
 
 ```bash
 
-cd apps\\issuance-api \&\& npm run dev
+cd apps\issuance-api && npm run dev
 
-cd ..\\verification-api \&\& npm run dev
+cd ..\verification-api && npm run dev
 
 ```
 
@@ -84,7 +84,7 @@ cd ..\\verification-api \&\& npm run dev
 
 ```bash
 
-cd frontend \&\& npm run dev
+cd frontend && npm run dev
 
 ```
 
@@ -124,9 +124,9 @@ docker volume create kube-cred-db
 
 docker run -d -p 8080:8080 --name issuance-container ^
 
-&nbsp; -e POD\_NAME=worker-1 ^
+&nbsp; -e POD_NAME=worker-1 ^
 
-&nbsp; -e SQLITE\_PATH=/data/issuance.sqlite ^
+&nbsp; -e SQLITE_PATH=/data/issuance.sqlite ^
 
 &nbsp; -v kube-cred-db:/data issuance-api:1.0
 
@@ -134,9 +134,9 @@ docker run -d -p 8080:8080 --name issuance-container ^
 
 docker run -d -p 8081:8081 --name verification-container ^
 
-&nbsp; -e POD\_NAME=worker-2 ^
+&nbsp; -e POD_NAME=worker-2 ^
 
-&nbsp; -e SQLITE\_PATH=/data/issuance.sqlite ^
+&nbsp; -e SQLITE_PATH=/data/issuance.sqlite ^
 
 &nbsp; -v kube-cred-db:/data verification-api:1.0
 
@@ -172,7 +172,7 @@ curl -X POST http://localhost:8080/issue ^
 
 &nbsp; -H "Content-Type: application/json" ^
 
-&nbsp; -d "{\\"credentialId\\":\\"cred-demo-1\\",\\"subject\\":\\"alice\\",\\"data\\":{\\"role\\":\\"admin\\"}}"
+&nbsp; -d "{\"credentialId\":\"cred-demo-1\",\"subject\":\"alice\",\"data\":{\"role\":\"admin\"}}"
 
 
 
@@ -180,7 +180,7 @@ curl -X POST http://localhost:8081/verify ^
 
 &nbsp; -H "Content-Type: application/json" ^
 
-&nbsp; -d "{\\"credentialId\\":\\"cred-demo-1\\",\\"subject\\":\\"alice\\"}"
+&nbsp; -d "{\"credentialId\":\"cred-demo-1\",\"subject\":\"alice\"}"
 
 ```
 
@@ -194,9 +194,9 @@ curl -X POST http://localhost:8081/verify ^
 
 ```bash
 
-cd apps\\issuance-api \&\& npm test \&\& npm run coverage
+cd apps\issuance-api && npm test && npm run coverage
 
-cd ..\\verification-api \&\& npm test \&\& npm run coverage
+cd ..\verification-api && npm test && npm run coverage
 
 ```
 
