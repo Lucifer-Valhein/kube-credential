@@ -2,7 +2,7 @@
 
 
 
-A full-stack demo showing \*\*Issuance\*\* \& \*\*Verification\*\* micro-services with a shared \*\*SQLite\*\* DB volume, plus a \*\*React Frontend\*\*.
+A full-stack demo showing **Issuance** \& **Verification** micro-services with a shared **SQLite** DB volume, plus a **React Frontend**.
 
 
 
