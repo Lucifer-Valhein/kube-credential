@@ -1,0 +1,167 @@
+/* =====================
+   Reset & Global Styles
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e6f0ff, #f9fbff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================
+   Navbar
+===================== */
+nav {
+  background: #0052cc;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+nav a {
+  color: #dce8ff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+nav a.active {
+  color: #ffffff;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 0.2rem;
+}
+
+/* =====================
+   Main Container
+===================== */
+.container {
+  max-width: 420px;
+  width: 90%;
+  margin: 5rem auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 82, 204, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #0052cc;
+}
+
+/* =====================
+   Form Styles
+===================== */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #cdd9ed;
+  border-radius: 8px;
+  background: #f7faff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0052cc;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 82, 204, 0.2);
+}
+
+/* =====================
+   Buttons
+===================== */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background: #003c99;
+  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
+}
+
+/* =====================
+   Message Box
+===================== */
+.message {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.message.success {
+  color: #2e8b57; /* green */
+}
+
+.message.error {
+  color: #d9534f; /* red */
+}
+
+/* =====================
+   Response Box
+===================== */
+.response-box {
+  background: #f7faff;
+  border: 1px solid #cdd9ed;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* =====================
+   Footer (Optional)
+===================== */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+}

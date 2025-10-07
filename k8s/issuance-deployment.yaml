@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: issuance-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: issuance-api
+  template:
+    metadata:
+      labels:
+        app: issuance-api
+    spec:
+      containers:
+        - name: issuance-api
+          image: issuance-api:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: POD_NAME
+              value: "worker-1"
+            - name: SQLITE_PATH
+              value: "/data/issuance.sqlite"
+          volumeMounts:
+            - name: sqlite-storage
+              mountPath: /data
+      volumes:
+        - name: sqlite-storage
+          persistentVolumeClaim:
+            claimName: kube-cred-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: issuance-service
+spec:
+  selector:
+    app: issuance-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP

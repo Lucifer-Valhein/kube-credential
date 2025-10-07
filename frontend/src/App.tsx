@@ -1,18 +1,34 @@
-import IssueCredential from "./components/IssueCredential";
-import VerifyCredential from "./components/VerifyCredential";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import IssuePage from "./pages/IssuePage";
+import VerifyPage from "./pages/VerifyPage";
 
-export default function App() {
+function App() {
   return (
-    <div style={{ padding: 20, fontFamily: "Arial", maxWidth: 800, margin: "0 auto" }}>
-      <h1>Kube Credential</h1>
+    <Router>
+      <nav>
+        <div className="logo">Kube Credential</div>
+        <div>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Issue
+          </NavLink>
+          <NavLink
+            to="/verify"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Verify
+          </NavLink>
+        </div>
+      </nav>
 
-      <section style={{ padding: 16, border: "1px solid #ccc", borderRadius: 6, marginBottom: 20 }}>
-        <IssueCredential />
-      </section>
-
-      <section style={{ padding: 16, border: "1px solid #ccc", borderRadius: 6 }}>
-        <VerifyCredential />
-      </section>
-    </div>
+      <Routes>
+        <Route path="/" element={<IssuePage />} />
+        <Route path="/verify" element={<VerifyPage />} />
+      </Routes>
+    </Router>
   );
 }
+
+export default App;
